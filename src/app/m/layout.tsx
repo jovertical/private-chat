@@ -3,7 +3,7 @@ import MobileNavigation from '@/components/m/mobile-navigation';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-white h-full">
+    <div className="bg-white/80 h-full">
       <MobileNavigation />
 
       <Sidebar />
