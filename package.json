@@ -11,7 +11,8 @@
     "test:lint": "next lint",
     "test:lint:fix": "npm run test:lint -- --fix",
     "test:unit": "",
-    "test": "npm run test:types && npm run test:lint && npm run test:unit"
+    "test": "npm run test:types && npm run test:lint && npm run test:unit",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "@types/crypto-js": "^4.1.1",
+    "husky": "^8.0.0",
     "prisma": "^4.14.1"
   }
 }
