@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useContext } from 'react';
 
 import Logo from '@/components/logo';
+import UserAvatar from '@/components/user-avatar';
 import UserMenu from '@/components/user-menu';
 import withNavigationProvider from '@/components/with-navigation-provider';
 import { NavigationContext } from '@/ctx/NavigationProvider';
@@ -23,9 +24,9 @@ function Sidebar() {
   return (
     <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
       {/* Sidebar component, swap this element with another sidebar if you like */}
-      <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
+      <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-black border-opacity-10 bg-white px-6">
         <div className="flex h-16 shrink-0 items-center">
-          <Logo className="h-9 w-auto text-gray-900" />
+          <Logo className="h-9 w-auto text-primary" />
         </div>
 
         <nav className="flex flex-1 flex-col">
@@ -38,20 +39,21 @@ function Sidebar() {
                       href={item.href}
                       className={cx(
                         item.current
-                          ? 'bg-gray-50 text-teal-600'
-                          : 'text-gray-700 hover:text-teal-600 hover:bg-gray-50',
-                        'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+                          ? 'bg-secondary/10 text-black'
+                          : 'text-black/70 hover:bg-black/5',
+                        'group flex gap-x-3 px-4 py-2 text-sm leading-6 font-medium rounded-sm'
                       )}
                     >
                       <item.icon
                         className={cx(
                           item.current
-                            ? 'text-teal-600'
-                            : 'text-gray-400 group-hover:text-teal-600',
+                            ? 'text-black/90'
+                            : 'text-black/70 group-hover:text-black/90',
                           'h-6 w-6 shrink-0'
                         )}
                         aria-hidden="true"
                       />
+
                       {item.name}
                     </Link>
                   </li>
@@ -60,8 +62,8 @@ function Sidebar() {
             </li>
 
             <li>
-              <div className="text-xs font-semibold leading-6 text-gray-400">
-                Your contacts
+              <div className="text-xs font-medium leading-6 text-black/40">
+                Contacts
               </div>
 
               <ul role="list" className="-mx-2 mt-2 space-y-1">
@@ -71,22 +73,12 @@ function Sidebar() {
                       href={contact.href}
                       className={cx(
                         contact.current
-                          ? 'bg-gray-50 text-teal-600'
-                          : 'text-gray-700 hover:text-teal-600 hover:bg-gray-50',
-                        'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+                          ? 'bg-secondary/10 text-black'
+                          : 'text-black/90 hover:bg-black/5',
+                        'group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6'
                       )}
                     >
-                      <span
-                        className={cx(
-                          contact.current
-                            ? 'text-teal-600 border-teal-600'
-                            : 'text-gray-400 border-gray-200 group-hover:border-teal-600 group-hover:text-teal-600',
-                          'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white'
-                        )}
-                      >
-                        {contact.initial}
-                      </span>
-
+                      <UserAvatar user={contact} />
                       <span className="truncate">{contact.name}</span>
                     </Link>
                   </li>

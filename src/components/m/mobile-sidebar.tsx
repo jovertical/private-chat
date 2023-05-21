@@ -3,9 +3,10 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { useContext, useState, Fragment } from 'react';
+import { useContext, Fragment } from 'react';
 
 import Logo from '@/components/logo';
+import UserAvatar from '@/components/user-avatar';
 import withNavigationProvider from '@/components/with-navigation-provider';
 import { NavigationContext } from '@/ctx/NavigationProvider';
 import { cx } from '@/utils';
@@ -39,7 +40,7 @@ function MobileSidebar({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-900/80" />
+          <div className="fixed inset-0 bg-black/70" />
         </Transition.Child>
 
         <div className="fixed inset-0 flex">
@@ -76,11 +77,12 @@ function MobileSidebar({
                   </button>
                 </div>
               </Transition.Child>
-              {/* Sidebar component, swap this element with another sidebar if you like */}
+
               <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2">
                 <div className="flex h-16 shrink-0 items-center">
-                  <Logo className="h-9 w-auto text-gray-900" />
+                  <Logo className="h-9 w-auto text-black/90" />
                 </div>
+
                 <nav className="flex flex-1 flex-col">
                   <ul role="list" className="flex flex-1 flex-col gap-y-7">
                     <li>
@@ -91,8 +93,8 @@ function MobileSidebar({
                               href={item.href}
                               className={cx(
                                 item.current
-                                  ? 'bg-gray-50 text-teal-600'
-                                  : 'text-gray-700 hover:text-teal-600 hover:bg-gray-50',
+                                  ? 'bg-secondary/10 text-black'
+                                  : 'text-black/70 hover:bg-black/5',
                                 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                               )}
                             >
@@ -100,8 +102,8 @@ function MobileSidebar({
                                 aria-hidden="true"
                                 className={cx(
                                   item.current
-                                    ? 'text-teal-600'
-                                    : 'text-gray-400 group-hover:text-teal-600',
+                                    ? 'text-black/90'
+                                    : 'text-black/40 group-hover:text-black/90',
                                   'h-6 w-6 shrink-0'
                                 )}
                               />
@@ -114,7 +116,7 @@ function MobileSidebar({
                     </li>
 
                     <li>
-                      <div className="text-xs font-semibold leading-6 text-gray-400">
+                      <div className="text-xs font-semibold leading-6 text-black/40">
                         Your contacts
                       </div>
 
@@ -125,22 +127,12 @@ function MobileSidebar({
                               href={contact.href}
                               className={cx(
                                 contact.current
-                                  ? 'bg-gray-50 text-teal-600'
-                                  : 'text-gray-700 hover:text-teal-600 hover:bg-gray-50',
+                                  ? 'bg-secondary/10 text-black'
+                                  : 'text-black/90 hover:bg-black/5',
                                 'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                               )}
                             >
-                              <span
-                                className={cx(
-                                  contact.current
-                                    ? 'text-teal-600 border-teal-600'
-                                    : 'text-gray-400 border-gray-200 group-hover:border-teal-600 group-hover:text-teal-600',
-                                  'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white'
-                                )}
-                              >
-                                {contact.initial}
-                              </span>
-
+                              <UserAvatar user={contact} />
                               <span className="truncate">{contact.name}</span>
                             </Link>
                           </li>

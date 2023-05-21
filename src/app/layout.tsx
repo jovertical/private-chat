@@ -6,7 +6,7 @@ import { cx } from '@/utils';
 const openSans = Open_Sans({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Private Chat',
+  title: 'Private Chats',
   description: 'Privacy first chat app with end-to-end encryption.',
 };
 
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full bg-white">
+    <html lang="en" className="h-full bg-white/70">
       <body className={cx([openSans.className, 'h-full'])}>{children}</body>
     </html>
   );

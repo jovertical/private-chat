@@ -48,7 +48,7 @@ const features = [
   },
 ];
 
-export default function Example() {
+export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -81,7 +81,7 @@ export default function Example() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-semibold leading-6 text-gray-900"
+                className="text-sm font-semibold leading-6 text-black/90"
               >
                 {item.name}
               </Link>
@@ -91,7 +91,7 @@ export default function Example() {
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link
               href="/auth/login"
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-sm font-semibold leading-6 text-black/90"
             >
               Log in <span aria-hidden="true">&rarr;</span>
             </Link>
@@ -106,7 +106,7 @@ export default function Example() {
         >
           <div className="fixed inset-0 z-50" />
 
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-black/90/10">
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">PrivateChat</span>
@@ -115,7 +115,7 @@ export default function Example() {
 
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                className="-m-2.5 rounded-md p-2.5 text-black/70"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Close menu</span>
@@ -124,22 +124,23 @@ export default function Example() {
             </div>
 
             <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10">
+              <div className="-my-6 divide-y divide-black/20">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-black/90 hover:bg-black/50"
                     >
                       {item.name}
                     </Link>
                   ))}
                 </div>
+
                 <div className="py-6">
                   <Link
                     href="/auth/login"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-black/90 hover:bg-black/50"
                   >
                     Log in
                   </Link>
@@ -166,11 +167,11 @@ export default function Example() {
 
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-black/90 sm:text-6xl">
               Your safe haven when it comes to messaging
             </h1>
 
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-black/60">
               Chat with confidence and protect your privacy with PrivateChat -
               the web app that ensures end-to-end encrypted messaging, secure
               file sharing, and disappearing messages. Experience peace of mind
@@ -182,7 +183,7 @@ export default function Example() {
 
               <Link
                 href="/"
-                className="text-sm font-semibold leading-6 text-gray-900"
+                className="text-sm font-semibold leading-6 text-black/90"
               >
                 Learn more <span aria-hidden="true">→</span>
               </Link>
@@ -208,15 +209,15 @@ export default function Example() {
       <div id="features" className="bg-gray-50  py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-teal-600">
+            <h2 className="text-base font-semibold leading-7 text-secondary">
               Secure Messaging
             </h2>
 
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <p className="mt-2 text-3xl font-bold tracking-tight text-black/90 sm:text-4xl">
               Everything you need to chat securely and privately
             </p>
 
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-black/60">
               Messaging should only be seen by you and your recipients, not by
               anyone else. Kept away from prying eyes, your messages and data
               are safe and secure.
@@ -227,8 +228,8 @@ export default function Example() {
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
               {features.map((feature) => (
                 <div key={feature.name} className="relative pl-16">
-                  <dt className="text-base font-semibold leading-7 text-gray-900">
-                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-teal-600">
+                  <dt className="text-base font-semibold leading-7 text-black/90">
+                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/90">
                       <feature.icon
                         className="h-6 w-6 text-white"
                         aria-hidden="true"
@@ -238,7 +239,7 @@ export default function Example() {
                     {feature.name}
                   </dt>
 
-                  <dd className="mt-2 text-base leading-7 text-gray-600">
+                  <dd className="mt-2 text-base leading-7 text-black/60">
                     {feature.description}
                   </dd>
                 </div>

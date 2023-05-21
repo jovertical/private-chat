@@ -18,10 +18,10 @@ export default function Alert({
 }: Props) {
   const colors = useMemo(() => {
     return {
-      success: 'text-green-600',
-      warning: 'text-yellow-600',
-      error: 'text-red-600',
-      info: 'text-blue-600',
+      success: 'text-green',
+      warning: 'text-yellow',
+      error: 'text-red',
+      info: 'text-blue',
     };
   }, []);
 
@@ -43,7 +43,7 @@ export default function Alert({
         <div className="ml-3">
           <h3 className={cx('font-medium', textColor)}>{title}</h3>
 
-          <div className="mt-1 text-sm text-gray-900">
+          <div className="mt-1 text-sm text-black/90">
             {typeof message === 'string' ? (
               <p>{message}</p>
             ) : (

@@ -22,7 +22,7 @@ export default function Group({
       <div className="flex items-center justify-between">
         <label
           htmlFor={name}
-          className="block text-sm font-medium leading-6 text-gray-900"
+          className="block text-sm font-medium leading-6 text-black/90"
         >
           {label}
         </label>
@@ -33,7 +33,7 @@ export default function Group({
       <div className="mt-2">{children}</div>
 
       {error && (
-        <p className="mt-2 text-sm text-red-600" id={`${name}-error`}>
+        <p className="mt-2 text-sm text-red" id={`${name}-error`}>
           {error.message}
         </p>
       )}

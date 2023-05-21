@@ -90,7 +90,7 @@ export default function Page() {
           <Logo className="h-16 w-auto mx-auto" />
         </Link>
 
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-black/90">
           Sign in to your account
         </h2>
       </div>
@@ -135,7 +135,7 @@ export default function Page() {
               <div className="text-sm">
                 <a
                   href="#"
-                  className="font-semibold text-teal-600 hover:text-teal-500"
+                  className="font-semibold text-secondary hover:text-secondary/70"
                 >
                   Forgot password?
                 </a>
@@ -161,11 +161,11 @@ export default function Page() {
           </div>
         </form>
 
-        <p className="mt-10 text-center text-sm text-gray-500">
+        <p className="mt-10 text-center text-sm text-black/50">
           Not a member?{' '}
           <Link
             href="/auth/register"
-            className="font-semibold leading-6 text-teal-600 hover:text-teal-500"
+            className="font-semibold leading-6 text-secondary hover:text-secondary/70"
           >
             Sign up
           </Link>

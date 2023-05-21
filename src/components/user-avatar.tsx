@@ -2,20 +2,35 @@ import { cx, generateAvatarColor } from '@/utils';
 import { useMemo } from 'react';
 
 interface Props {
+  size?: 'sm' | 'md' | 'lg';
   user: {
     name?: string | null;
     [key: string]: any;
   };
 }
 
+export type UserAvatarProps = Props;
+
 const colors = {
-  gray: 'bg-gray-600',
-  red: 'bg-red-600',
-  teal: 'bg-teal-600',
-  pink: 'bg-pink-600',
+  gray: 'bg-black',
+  red: 'bg-red',
+  green: 'bg-green',
+  pink: 'bg-pink',
 };
 
-export default function UserAvatar({ user }: Props) {
+const sizes = {
+  sm: 'h-6 w-6',
+  md: 'h-8 w-8',
+  lg: 'h-10 w-10',
+};
+
+const textSizes = {
+  sm: 'text-xs',
+  md: 'text-sm',
+  lg: 'text-base',
+};
+
+export default function UserAvatar({ size = 'md', user }: Props) {
   const initials = useMemo(() => {
     if (!user) {
       return null;
@@ -31,11 +46,19 @@ export default function UserAvatar({ user }: Props) {
   return (
     <span
       className={cx(
-        'inline-flex h-10 w-10 items-center justify-center rounded-full',
+        'inline-flex items-center justify-center rounded-full',
+        sizes[size],
         colors[generateAvatarColor(initials ?? '')]
       )}
     >
-      <span className="font-medium leading-none text-white">{initials}</span>
+      <span
+        className={cx(
+          'font-medium leading-none text-white uppercase',
+          textSizes[size]
+        )}
+      >
+        {initials}
+      </span>
     </span>
   );
 }

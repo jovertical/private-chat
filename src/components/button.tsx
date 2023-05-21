@@ -6,7 +6,7 @@ interface Props extends React.ComponentPropsWithoutRef<'button'> {
 }
 
 const colors = {
-  primary: 'bg-teal-500 hover:bg-teal-400 focus-visible:outline-teal-500',
+  primary: 'bg-primary hover:bg-primary/90 focus-visible:outline-primary',
   secondary:
     'bg-gray-100/10 hover:bg-gray-100/20 focus-visible:outline-gray-50',
 };
