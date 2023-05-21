@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useContext } from 'react';
 
 import Logo from '@/components/logo';
-import UserAvatar from '@/components/user-avatar';
+import UserMenu from '@/components/user-menu';
 import withNavigationProvider from '@/components/with-navigation-provider';
 import { NavigationContext } from '@/ctx/NavigationProvider';
 import { cx } from '@/utils';
@@ -95,14 +95,7 @@ function Sidebar() {
             </li>
 
             <li className="-mx-6 mt-auto">
-              <a
-                href="#"
-                className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50"
-              >
-                <UserAvatar />
-                <span className="sr-only">Your profile</span>
-                <span aria-hidden="true">Tom Cook</span>
-              </a>
+              <UserMenu />
             </li>
           </ul>
         </nav>

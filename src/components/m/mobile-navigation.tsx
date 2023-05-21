@@ -4,7 +4,7 @@ import { Bars3Icon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
 import MobileSidebar from '@/components/m/mobile-sidebar';
-import UserAvatar from '@/components/user-avatar';
+import UserMenu from '@/components/user-menu';
 
 export default function MobileNavigation() {
   const [open, setOpen] = useState(false);
@@ -25,10 +25,7 @@ export default function MobileNavigation() {
           Chats
         </div>
 
-        <a href="#">
-          <span className="sr-only">Your profile</span>
-          <UserAvatar />
-        </a>
+        <UserMenu />
       </div>
 
       <MobileSidebar open={open} setOpen={setOpen} />
