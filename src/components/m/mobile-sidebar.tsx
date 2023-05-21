@@ -1,23 +1,13 @@
-'use client';
-
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useContext, Fragment } from 'react';
 
 import Logo from '@/components/logo';
-import UserAvatar from '@/components/user-avatar';
+import ContactList from '@/components/m/contact-list';
 import withNavigationProvider from '@/components/with-navigation-provider';
 import { NavigationContext } from '@/ctx/NavigationProvider';
 import { cx } from '@/utils';
-
-const contacts = [
-  { id: 1, name: 'Marisol Narvas', href: '#', initial: 'MN', current: false },
-  { id: 2, name: 'Chito Navea', href: '#', initial: 'CN', current: false },
-  { id: 3, name: 'Junel Barrida', href: '#', initial: 'JB', current: false },
-  { id: 4, name: 'Arnie Mariano', href: '#', initial: 'AM', current: false },
-  { id: 5, name: 'Kennent Mendoza', href: '#', initial: 'KM', current: false },
-];
 
 function MobileSidebar({
   open,
@@ -120,24 +110,7 @@ function MobileSidebar({
                         Your contacts
                       </div>
 
-                      <ul role="list" className="-mx-2 mt-2 space-y-1">
-                        {contacts.map((contact) => (
-                          <li key={contact.name}>
-                            <Link
-                              href={contact.href}
-                              className={cx(
-                                contact.current
-                                  ? 'bg-secondary/10 text-black'
-                                  : 'text-black/90 hover:bg-black/5',
-                                'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
-                              )}
-                            >
-                              <UserAvatar user={contact} />
-                              <span className="truncate">{contact.name}</span>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                      <ContactList className="mt-2" />
                     </li>
                   </ul>
                 </nav>

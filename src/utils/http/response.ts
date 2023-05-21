@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 // Polyfill for the serialization of prisma objects issue as detailed here: https://github.com/prisma/studio/issues/614
 // @ts-ignore

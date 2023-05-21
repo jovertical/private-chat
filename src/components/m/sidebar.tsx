@@ -1,10 +1,8 @@
-'use client';
-
 import Link from 'next/link';
 import { useContext } from 'react';
 
 import Logo from '@/components/logo';
-import UserAvatar from '@/components/user-avatar';
+import ContactList from '@/components/m/contact-list';
 import UserMenu from '@/components/user-menu';
 import withNavigationProvider from '@/components/with-navigation-provider';
 import { NavigationContext } from '@/ctx/NavigationProvider';
@@ -23,7 +21,6 @@ function Sidebar() {
 
   return (
     <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-      {/* Sidebar component, swap this element with another sidebar if you like */}
       <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-black border-opacity-10 bg-white px-6">
         <div className="flex h-16 shrink-0 items-center">
           <Logo className="h-9 w-auto text-primary" />
@@ -66,24 +63,7 @@ function Sidebar() {
                 Contacts
               </div>
 
-              <ul role="list" className="-mx-2 mt-2 space-y-1">
-                {contacts.map((contact) => (
-                  <li key={contact.name}>
-                    <Link
-                      href={contact.href}
-                      className={cx(
-                        contact.current
-                          ? 'bg-secondary/10 text-black'
-                          : 'text-black/90 hover:bg-black/5',
-                        'group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6'
-                      )}
-                    >
-                      <UserAvatar user={contact} />
-                      <span className="truncate">{contact.name}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <ContactList className="mt-2" />
             </li>
 
             <li className="-mx-6 mt-auto">
